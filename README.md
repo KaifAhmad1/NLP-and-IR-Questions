@@ -17,12 +17,10 @@ print(tokens)
 import nltk
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
-
 # Download NLTK resources like 
 # punkt model for tokenization
 nltk.download('stopwords')
 nltk.download('punkt')
-
 # Define a function to remove stopwords
 def remove_stopwords(text):
     stop_words = set(stopwords.words('english'))
@@ -63,8 +61,41 @@ def split_sentences(text):
     # and remove any empty strings from the resulting list.
   sentences = [sentence.strip() for sentence in re.split(sentence_endings, text) if sentence.strip()]
   return sentences
+
 # Input 
 text = "This is a sample text. It contains multiple sentences. How are you today?"
 sentences = split_sentences(text)
 print(sentences)
 ```
+### Implement the bag of words model for a given corpus.
+ A `bag of words` is a technique in natural language processing that represents text by counting the frequency of words, ignoring grammar and word order. It's used to convert text data into numerical feature vectors for machine learning tasks. Each document is represented as a vector where each element corresponds to the count of a particular word. While simple, it's effective for tasks like text classification and sentiment analysis.
+``` Python 
+# Bag of Words
+from collections import Counter 
+def preprocess_text(text):
+  text = text.lower()
+  tokens = text.split()
+  return tokens 
+def bag_of_words(corpus):
+  words = [] # Empty list for storing Bag of Words 
+  for document in corpus: 
+    # Preprocess Documents 
+    tokens = preprocess_text(document)
+    # Extend words based on documents 
+    words.extend(tokens)
+    words_count = Counter(words)
+  return words_count
+
+# Input 
+corpus = [
+    "This is the first document.",
+    "This document is the second document.",
+    "And this is the third one.",
+    "Is this the first document?"
+]
+result = bag_of_words(corpus)
+print("Bag of Words Model:")
+print(result)
+```
+
+
