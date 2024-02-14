@@ -113,4 +113,44 @@ result = generate_ngrams(text, n)
 print(f"{n}-grams:")
 print(result)
 ```
+###  Implement text normalization techniques like case folding and accent removal.
+``` Python 
+import unicodedata
+def normalize_text(text):
+    normalized_chars = []
+    for char in text:
+        char_lower = char.lower()
+        # Remove accents (diacritics)
+        normalized_char = unicodedata.normalize('NFKD', char_lower)
+        normalized_char = ''.join(c for c in normalized_char if not unicodedata.combining(c))
+         # Append the normalized character to the list
+        normalized_chars.append(normalized_char)
+         # Join the normalized characters back into a string
+    normalized_text = ''.join(normalized_chars)
+    return normalized_text
 
+text = "Héllo WÓRLD!"
+normalized_text = normalize_text(text)
+print(normalized_text) 
+```
+###  Write a spell checking program for a given text.
+``` Python 
+!pip install pyenchant
+import enchant 
+def spell_check(text):
+  dictionary = enchant.Dict("en_US") # Dictionary Object for English Dic
+  words = text.split()
+  # Check mispelled words 
+  misspelled_words = [word for word in words if not dictionary.check(word)]
+  return misspelled_words
+
+# Input 
+text = 'Thiss iss a test to chekk the misspelled wordss.'
+misspelled_words = spell_check(text)
+if misspelled_words:
+   print("Misspelled words found:")
+   for word in misspelled_words:
+    print(word)
+else:
+  print("No Misspelled words found!")
+```
