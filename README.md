@@ -251,3 +251,43 @@ tagged_text = pos_tagging(text)
 print("POS Tagging:")
 print(tagged_text)
 ``` 
+### Implement a stemming algorithm such as Porter or Snowball.
+``` Python 
+import nltk
+from nltk.tokenize import word_tokenize
+from nltk.stem import PorterStemmer
+nltk.download('punkt')
+porter_stemmer = PorterStemmer()
+
+def porter_stemming(text):
+    words = word_tokenize(text)
+    stemmed_words = [porter_stemmer.stem(word) for word in words]
+    stemmed_text = ' '.join(stemmed_words)
+    return stemmed_text
+
+# Input
+text = "The quick brown foxes are jumping over the lazy dogs."
+stemmed_text = porter_stemming(text)
+print("Stemmed Text (Porter Algorithm):")
+print(stemmed_text)
+```
+###  Create a function to perform lemmatization on a text.
+``` Python 
+import nltk
+from nltk.tokenize import word_tokenize
+from nltk.stem import WordNetLemmatizer
+nltk.download('punkt')
+nltk.download('wordnet')
+lemmatizer = WordNetLemmatizer()
+
+def lemmatize_text(text):
+    words = word_tokenize(text)
+    lemmatized_words = [lemmatizer.lemmatize(word) for word in words]
+    lemmatized_text = ' '.join(lemmatized_words)
+    return lemmatized_text
+# Inpur
+text = "The quick brown foxes are jumping over the lazy dogs."
+lemmatized_text = lemmatize_text(text)
+print("Lemmatized Text:")
+print(lemmatized_text)
+```
