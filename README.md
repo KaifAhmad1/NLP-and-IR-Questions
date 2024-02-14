@@ -154,3 +154,41 @@ if misspelled_words:
 else:
   print("No Misspelled words found!")
 ```
+### Implement a program to segment a text into coherent parts.
+``` Python 
+# Using NLTK and punkt model 
+import nltk
+nltk.download('punkt')
+def segment_text(text):
+    # Tokenize the text into sentences
+    sentences = nltk.sent_tokenize(text)
+    # Print the segmented sentences
+    for i, sentence in enumerate(sentences, 1):
+        print(f"Part {i}: {sentence.strip()}\n")
+# Input 
+text = """
+Natural language processing (NLP) is a field of computer science, artificial intelligence, and linguistics concerned with the interactions between computers and human (natural) languages. As such, NLP is related to the area of human–computer interaction. Many challenges in NLP involve natural language understanding, that is, enabling computers to derive meaning from human or natural language input, and others involve natural language generation.
+"""
+segment_text(text)
+```
+``` Python
+# Simpler Approach without using NLTK and punkt
+def segment_text_manually(text):
+    parts = []
+    print("Segment the text into coherent parts. Enter each part separately. Type 'done' when finished.\n")
+    while True:
+        part = input("Enter a coherent part: ").strip()
+        if part.lower() == 'done':
+            break
+        parts.append(part)
+    return parts
+
+# Input
+text = """
+Natural language processing (NLP) is a field of computer science, artificial intelligence, and linguistics concerned with the interactions between computers and human (natural) languages. As such, NLP is related to the area of human–computer interaction. Many challenges in NLP involve natural language understanding, that is, enabling computers to derive meaning from human or natural language input, and others involve natural language generation.
+"""
+parts = segment_text_manually(text)
+print("\nCoherent Parts:")
+for i, part in enumerate(parts, 1):
+    print(f"Part {i}: {part}\n")
+```
