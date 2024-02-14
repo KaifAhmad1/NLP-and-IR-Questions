@@ -233,3 +233,21 @@ print("Named Entities:")
 for entity, label in entities:
     print(f"{entity}: {label}")
 ```
+###  Write a program to perform POS tagging on a text.
+``` Python 
+import nltk
+from nltk.tokenize import word_tokenize
+# Download the necessary NLTK models for POS Tagging punkt and averaged_perceptron_tagger
+nltk.download('punkt')
+nltk.download('averaged_perceptron_tagger')
+
+def pos_tagging(text):
+    words = word_tokenize(text)
+    tagged_words = nltk.pos_tag(words)
+    return tagged_words
+# Input
+text = "The quick brown fox jumps over the lazy dog."
+tagged_text = pos_tagging(text)
+print("POS Tagging:")
+print(tagged_text)
+``` 
