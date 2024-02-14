@@ -192,3 +192,26 @@ print("\nCoherent Parts:")
 for i, part in enumerate(parts, 1):
     print(f"Part {i}: {part}\n")
 ```
+###  Create a program to detect the language of a given text.
+``` Python 
+def detect_language_manually(text):
+    # Define common words in different languages
+    common_words = {
+        'english': ['hello', 'how', 'are', 'you', 'good'],
+        'french': ['bonjour', 'comment', 'ça', 'va', 'bien'],
+        'spanish': ['hola', 'cómo', 'estás', 'bien', 'gracias'],
+        # Add more languages and their common words here
+    }
+    # Count the occurrence of common words in the text
+    word_count = {lang: sum(text.lower().count(word) for word in words) for lang, words in common_words.items()}
+    # Identify the language with the highest word count
+    detected_language = max(word_count, key=word_count.get)
+    return detected_language
+
+# Input 
+text = """
+Hola, ¿cómo estás? Me llamo Juan y vivo en España. 
+"""
+detected_language = detect_language_manually(text)
+print(f"The detected language is: {detected_language}")
+```
