@@ -97,5 +97,20 @@ result = bag_of_words(corpus)
 print("Bag of Words Model:")
 print(result)
 ```
-
+### Explain and Implement a function to generate n-grams from a text.
+The N-gram model is a technique in natural language processing (NLP) where we analyze text by considering sequences of N consecutive words. For instance, if N=2, we look at pairs of words (bigrams), and if N=3, we consider triplets (trigrams), and so forth. This allows us to capture the contextual relationships between words. We tokenize the text, breaking it down into individual words, and then slide a window of size N over the text to extract these sequences. Each sequence is called an N-gram. By counting how often each N-gram appears in a corpus of text, we can estimate the likelihood of encountering that sequence. This information is used in various NLP tasks such as language modelling, where we predict the next word in a sequence given the previous words.
+``` Python 
+def generate_ngrams(text, n):
+    words = text.split()
+    ngrams = []
+    for i in range(len(words) - n + 1):
+        ngrams.append(' '.join(words[i:i+n]))
+    return ngrams
+# Input:
+text = "This is a sample text for generating n-grams."
+n = 2 
+result = generate_ngrams(text, n)
+print(f"{n}-grams:")
+print(result)
+```
 
