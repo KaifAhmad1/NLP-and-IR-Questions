@@ -53,3 +53,18 @@ word_freq = calculate_word_frequency(text)
 print("Word frequency:")
 print(word_freq)
 ```
+
+### Create a function to split a text into sentences.
+``` Python 
+import re 
+def split_sentences(text):
+  sentence_endings = r'(?<!\w\.\w.)(?<![A-Z][a-z]\.)(?<=\.|\?|\!)\s+'
+    # Split the text into sentences using the pattern,
+    # and remove any empty strings from the resulting list.
+  sentences = [sentence.strip() for sentence in re.split(sentence_endings, text) if sentence.strip()]
+  return sentences
+# Input 
+text = "This is a sample text. It contains multiple sentences. How are you today?"
+sentences = split_sentences(text)
+print(sentences)
+```
