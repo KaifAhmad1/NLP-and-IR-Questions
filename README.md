@@ -215,3 +215,21 @@ Hola, ¿cómo estás? Me llamo Juan y vivo en España.
 detected_language = detect_language_manually(text)
 print(f"The detected language is: {detected_language}")
 ```
+### Create a program for Extracting Name Entities including their labels using the Spacy library? 
+``` Python 
+import spacy
+def ner(text):
+  nlp = spacy.load('en_core_web_sm') 
+  document = nlp(text)
+  # Extract Name Entities: 
+  entities = [(entity.text, entity.label_) for entity in document.ents]
+  return entities 
+# Input 
+text = """
+In a recent study conducted by Stanford University, researchers used Named Entity Recognition (NER) techniques to analyze news articles from various countries, including the United States, China, and Brazil. The study aimed to identify and classify named entities such as government officials, multinational corporations, geographic locations, and specific dates mentioned in the articles. The results revealed significant differences in the frequency and distribution of named entities across different regions, highlighting the importance of NER in cross-cultural information extraction tasks.
+"""
+entities = ner(text)
+print("Named Entities:")
+for entity, label in entities:
+    print(f"{entity}: {label}")
+```
