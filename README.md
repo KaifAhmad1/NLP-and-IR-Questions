@@ -291,3 +291,16 @@ lemmatized_text = lemmatize_text(text)
 print("Lemmatized Text:")
 print(lemmatized_text)
 ```
+### Explain Dependency Parsing. Write a program to perform dependency parsing on a sentence.
+Dependency parsing in NLP is about analyzing the grammatical structure of a sentence by identifying which words depend on others and how they're related. It represents these relationships as a directed graph, where each word is a node, and the links between them show dependency relations. This technique helps machines understand sentence structure and is crucial for tasks like part-of-speech tagging, named entity recognition, and machine translation.
+``` Python 
+import spacy 
+def dependency_parsing(text):
+  nlp = spacy.load('en_core_web_sm')
+  document = nlp(text)
+  for token in document:
+        print(token.text, "-->", token.dep_, "-->", token.head.text)
+# Input 
+sentence = "The quick brown fox jumps over the lazy dog."
+dependency_parsing(sentence)
+```
