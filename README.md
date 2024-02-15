@@ -304,3 +304,16 @@ def dependency_parsing(text):
 sentence = "The quick brown fox jumps over the lazy dog."
 dependency_parsing(sentence)
 ```
+### Explain Semantic role labeling. Write a program to perform semantic role labeling on a sentence.
+Semantic Role Labeling (SRL) is a natural language processing task where words in a sentence are labeled with their semantic roles, such as agent, patient, or instrument. It helps computers understand the meaning of text by identifying who did what to whom. SRL is crucial for tasks like information extraction, question answering, and sentiment analysis.
+``` Python
+import spacy
+def semantic_role_labeling_spacy(text):
+  nlp = spacy.load('en_core_web_sm')
+  document = nlp(text)
+  for token in document:
+    print(token.text, token.dep_, token.head.text)
+# Input 
+sentence = "The cat sat on the mat."
+semantic_role_labeling_spacy(sentence)
+```
