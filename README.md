@@ -342,3 +342,45 @@ def entity_linking(text):
 text = "Steve Jobs was the co-founder of Apple Inc. He was born in San Francisco."
 entity_linking(text)
 ```
+### Explain Name Entity Disambiguation and write a code for NED? 
+Named Entity Disambiguation (NED) is the process of resolving ambiguities in named entities by determining their specific meanings in context. It involves recognizing named entities, analyzing surrounding context, and using external knowledge sources to identify the correct referents for ambiguous entities. NED is crucial for accurate understanding of natural language text and is used in various NLP tasks such as information retrieval and question answering.
+``` Python 
+knowledge_base = {
+    "Steve Jobs": "Steven Paul Jobs was an American business magnate, industrial designer, and inventor.",
+    "Apple Inc.": "Apple Inc. is an American multinational technology company that designs, develops, and sells consumer electronics, computer software, and online services.",
+    "Apple": "Apple is the fruit of the apple tree, which is a deciduous tree in the rose family best known for its sweet, pomaceous fruit, the apple."
+}
+
+def entity_disambiguation(entity_name):
+    # Check if the entity is present in the knowledge base
+    if entity_name in knowledge_base:
+        return knowledge_base[entity_name]
+    else:
+        return "No description found for this entity."
+
+entity_name = "Apple"
+print("Description:", entity_disambiguation(entity_name))
+```
+### Explain Conference Resolution. Create a function to resolve coreferences in a text.
+Coreference Resolution is a task in NLP that aims to identify and link together all mentions of the same entity within a text. For instance, in the sentence "Jane saw her reflection in the mirror," Coreference Resolution would recognize that "her" refers back to "Jane." By linking these mentions, the system can understand that they represent the same person. This task is crucial for various NLP applications, such as document summarization and question answering, where understanding the relationships between different mentions is essential for producing coherent interpretations of text. Coreference Resolution systems utilize linguistic features and contextual information to accurately identify coreferent expressions and generate cohesive interpretations of text.
+``` Python 
+import spacy
+def resolve_coreferences(text):
+    nlp = spacy.load("en_core_web_sm")
+    document = nlp(text)
+    resolved_text = text
+    for ent in document.ents:
+        if ent.root.head == ent.root:
+            coref = ent.text
+            for token in ent.root.children:
+                if token.dep_ == 'poss':
+                    coref += "'s"
+                    break
+            resolved_text = resolved_text.replace(ent.text, coref)
+    return resolved_text
+
+# Input 
+text = "John went to his favorite restaurant. He ordered a burger."
+resolved_text = resolve_coreferences(text)
+print("Resolved Text:", resolved_text)
+```
