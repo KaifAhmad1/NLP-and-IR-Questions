@@ -317,3 +317,28 @@ def semantic_role_labeling_spacy(text):
 sentence = "The cat sat on the mat."
 semantic_role_labeling_spacy(sentence)
 ```
+### Explain Name Entity Linkage and Implement basic NEL System using suitable packages?
+Named Entity Linking (NEL) is a process in natural language processing (NLP) that involves identifying specific named entities in text and connecting them to unique entries in a knowledge base. This helps disambiguate entities and allows systems to understand text more accurately. The process includes recognizing named entities, finding potential matches in a knowledge base, choosing the correct match based on context, and linking to the corresponding entry. NEL is essential for tasks like information retrieval, question answering, and knowledge graph construction.
+``` Python 
+!pip install wikipedia 
+import spacy 
+import wikipedia 
+nlp = spacy.load("en_core_web_sm")
+
+def entity_linking(text):
+  document = nlp(text)
+
+  for ent in document.ents:
+        if ent.label_ in ['PERSON', 'ORG', 'GPE']: 
+            entity_name = ent.text
+            try:
+                page = wikipedia.page(entity_name)
+                print(f"Entity: {entity_name} | Link: {page.url}")
+            except wikipedia.exceptions.PageError:
+                print(f"No Wikipedia page found for {entity_name}")
+            except wikipedia.exceptions.DisambiguationError as e:
+                print(f"Disambiguation options for {entity_name}: {', '.join(e.options)}")
+
+text = "Steve Jobs was the co-founder of Apple Inc. He was born in San Francisco."
+entity_linking(text)
+```
