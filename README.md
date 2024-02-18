@@ -295,15 +295,30 @@ print(lemmatized_text)
 Subword tokenization is a text processing technique used in natural language processing (NLP) to break down words into smaller units called subwords. Unlike traditional tokenization methods that treat each word as a separate entity, subword tokenization operates more granularly, segmenting words into meaningful subunits or morphemes. This approach is beneficial for handling morphologically rich languages, and `out-of-vocabulary` words, and reducing the vocabulary size in NLP models.
 1. **Byte Pair Encoding:**  Byte Pair Encoding (BPE) is a subword tokenization algorithm that iteratively merges the most frequent pairs of consecutive symbols until a target vocabulary size is reached, effectively capturing morphological variations and reducing vocabulary size for improved NLP model performance.
 
-``` Python 
-   BPE Algorithm:
-1. Initialize vocabulary with characters or tokens.
-2. Repeat until stopping criterion:
-     a. Compute frequency of pairs of consecutive symbols.
-     b. Identify most frequent pair.
-     c. Merge the pair into a new symbol.
-     d. Update vocabulary.
-3. Tokenize input text using learned vocabulary and segmentation rules.
+``` Python
+ BPE Algorithm:
+1. Initialize:
+   - corpus = [list of texts]
+   - vocabulary = set of unique characters in corpus
+   - desired_vocab_size = desired size of vocabulary
+   - splits = dictionary with each word split into characters
+   - merges = empty dictionary
+
+2. Learn Merges:
+   while size of vocabulary < desired_vocab_size:
+      a. Find most frequent pair:
+         - Compute frequencies of character pairs in splits
+         - Identify the pair with highest frequency
+      b. Merge most frequent pair:
+         - Update splits by merging occurrences of the pair
+         - Add merged pair to merges
+         - Update vocabulary
+
+3. Tokenization:
+   a. Break text into characters
+   b. Apply learned merges to tokenize text
+
+4. Return tokenized text
 ```
 
 ### Explain Dependency Parsing. Write a program to perform dependency parsing on a sentence.
