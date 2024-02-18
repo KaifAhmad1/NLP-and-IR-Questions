@@ -291,6 +291,21 @@ lemmatized_text = lemmatize_text(text)
 print("Lemmatized Text:")
 print(lemmatized_text)
 ```
+### Explain Subword tokenization. Explain Byte Pair Encoding(BPE) and WordPiece and also the implementation of these algorithms. 
+Subword tokenization is a text processing technique used in natural language processing (NLP) to break down words into smaller units called subwords. Unlike traditional tokenization methods that treat each word as a separate entity, subword tokenization operates more granularly, segmenting words into meaningful subunits or morphemes. This approach is beneficial for handling morphologically rich languages, and `out-of-vocabulary` words, and reducing the vocabulary size in NLP models.
+1. **Byte Pair Encoding:**  Byte Pair Encoding (BPE) is a subword tokenization algorithm that iteratively merges the most frequent pairs of consecutive symbols until a target vocabulary size is reached, effectively capturing morphological variations and reducing vocabulary size for improved NLP model performance.
+
+``` Python 
+   BPE Algorithm:
+1. Initialize vocabulary with characters or tokens.
+2. Repeat until stopping criterion:
+     a. Compute frequency of pairs of consecutive symbols.
+     b. Identify most frequent pair.
+     c. Merge the pair into a new symbol.
+     d. Update vocabulary.
+3. Tokenize input text using learned vocabulary and segmentation rules.
+```
+
 ### Explain Dependency Parsing. Write a program to perform dependency parsing on a sentence.
 Dependency parsing in NLP is about analyzing the grammatical structure of a sentence by identifying which words depend on others and how they're related. It represents these relationships as a directed graph, where each word is a node, and the links between them show dependency relations. This technique helps machines understand sentence structure and is crucial for tasks like part-of-speech tagging, named entity recognition, and machine translation.
 ``` Python 
