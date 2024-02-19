@@ -438,3 +438,13 @@ The Searching / Retrieval Subsystem is responsible for executing search queries 
 - 3. **Feedback:** User feedback is essential for refining search strategies and improving the retrieval process. Feedback mechanisms enable users to provide input on the relevance and usefulness of retrieved documents, which can be used to adjust search algorithms and improve future search results.
 
 Overall, these components work together to facilitate efficient information retrieval, ensuring that users can find relevant documents quickly and easily.
+
+### Commonly well-known components in IR Systems: 
+1. **Reader:** 
+The Reader component in an Information Retrieval (IR) system preprocesses documents through tasks like tokenization, lemmatization, and stemming. Tokenization breaks text into individual words or tokens for processing, while lemmatization reduces words to their base form, enhancing consistency. These tasks standardize text representation, reduce noise, and improve retrieval accuracy.
+2.  **Retriever:**
+The Retriever component in an Information Retrieval (IR) system retrieves relevant documents from the document store based on user queries. It utilizes methods like lexical search or dense retrieval with a bi-encoder.
+Lexical search directly matches query terms against indexed terms in documents, while dense retrieval with a bi-encoder encodes both queries and documents into dense vectors and computes their similarity scores.
+The method choice depends on factors like document collection size, query complexity, and the trade-off between retrieval speed and accuracy.
+3. **Ranker:**
+The Ranker component in an Information Retrieval (IR) system is pivotal for assessing the relevance of retrieved documents to a user query. Employing various scoring techniques, it encompasses traditional methods such as Vector Space Models like TF-IDF, probabilistic methods like Okapi-BM25, as well as cutting-edge approaches like ELMo and BERT. While TF-IDF prioritizes documents containing query terms with high frequency in the document but low frequency across the entire collection, advanced models like ELMo and BERT leverage extensive training data to learn intricate relevance patterns. This diversity in scoring techniques allows the Ranker to adapt to different retrieval scenarios and optimize relevance ranking, thereby enhancing the overall search experience for users.
