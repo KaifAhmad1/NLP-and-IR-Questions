@@ -414,3 +414,5 @@ text = "John went to his favorite restaurant. He ordered a burger."
 resolved_text = resolve_coreferences(text)
 print("Resolved Text:", resolved_text)
 ```
+## Information Retrieval Interview Questions: 
+
