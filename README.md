@@ -415,4 +415,26 @@ resolved_text = resolve_coreferences(text)
 print("Resolved Text:", resolved_text)
 ```
 ## Information Retrieval Interview Questions: 
+### Explain the major components of the Information Retrieval System in detail. 
 
+An Information Retrieval System consists of three main components:
+
+### 1. Document Subsystem
+The Document Subsystem deals with the management and organization of documents within the system. It comprises the following functions:
+- 1. **Acquisition:** This involves the process of selecting and collecting documents from various sources. It may include web crawling, data scraping, or manual selection methods to gather relevant documents.
+- 2. **Representation:** Once documents are acquired, they need to be structured and indexed for efficient retrieval. Representation involves tasks such as indexing, abstracting, and organizing documents based on their content, metadata, or other characteristics.
+- 3. **File Organization:** Documents can be organized in different ways for storage and retrieval. This includes sequential or inverted indexing methods. Sequential organization stores documents in a linear fashion, while inverted indexing builds indexes of terms pointing to documents containing those terms, enabling faster searches.
+
+### 2. User Subsystem
+The User Subsystem focuses on understanding and catering to the needs of system users. It includes the following functionalities:
+- 1. **Problem Identification:** This step involves recognizing the information needs and tasks of users. Understanding user requirements is crucial for delivering relevant search results.
+- 2. **Query Representation:** Once the user's information needs are identified, the next step is to convert these needs into search queries. Query representation involves translating user concepts or requirements into formal query language constructs that the system can understand.
+- 3. **Query Translation:** The translated queries need to be processed further to match system requirements and capabilities. Query translation involves converting user queries into system-specific query structures or commands that can be executed by the system to retrieve relevant information.
+ 
+### 3. Searching / Retrieval Subsystem
+The Searching / Retrieval Subsystem is responsible for executing search queries and retrieving relevant documents. It encompasses the following functions:
+- 1. **Matching:** This involves comparing user queries with indexed documents to identify matches. Various matching algorithms and techniques are used to determine the relevance of documents to the user's query.
+- 2. **Retrieved Documents:** Once relevant documents are identified, they are presented to the user based on search algorithms. This may involve ranking documents by relevance or other criteria to help users find the most useful information.
+- 3. **Feedback:** User feedback is essential for refining search strategies and improving the retrieval process. Feedback mechanisms enable users to provide input on the relevance and usefulness of retrieved documents, which can be used to adjust search algorithms and improve future search results.
+
+Overall, these components work together to facilitate efficient information retrieval, ensuring that users can find relevant documents quickly and easily.
