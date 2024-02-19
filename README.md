@@ -455,3 +455,27 @@ The Ranker component in an Information Retrieval (IR) system is pivotal for asse
 The Query Processor component interprets user queries, parsing them into keywords and understanding their intent to generate relevant search results. It refines queries by adding synonyms or filtering out irrelevant terms to improve retrieval accuracy. By ensuring accurate query interpretation and effective translation into retrieval actions, the Query Processor plays a crucial role in optimizing search results and enhancing the overall user experience.
 7. **Document Store / Knowledge Base:**
 The Document Store houses all searchable documents, acting as the source for the Retriever component's document retrieval process based on user queries. The choice of storage mechanism—whether it's a database, file system, or specialized search engine like Elasticsearch or Solr—impacts the efficiency and scalability of retrieval operations. Each mechanism offers unique advantages and trade-offs in terms of indexing speed, query performance, and scalability. Databases provide structured data storage and efficient querying but may struggle with scalability for unstructured text. File systems offer fast access but lack advanced search features. Specialized search engines like Elasticsearch or Solr excel in full-text search, making them ideal for large document collections with complex retrieval needs.
+
+### Term Frequency Calculation: Write a program to calculate the term frequency of terms in a document.
+``` Python 
+from collections import defaultdict
+def calculate_tf(document):
+    document = document.lower()
+    terms = document.split()
+    term_freq = defaultdict(int) # Empty Dictionary for tf 
+
+    for term in terms:
+        term_freq[term] += 1
+
+    total_terms = len(terms)
+    for term, frequency in term_freq.items():
+        term_freq[term] = frequency / total_terms
+    
+    return term_freq
+# Input 
+document = "This is a sample document to demonstrate term frequency calculation. This document has repeated terms to illustrate term frequency."
+tf = calculate_tf(document)
+print("Term Frequency:")
+for term, frequency in tf.items():
+    print(f"{term}: {frequency}")
+```
