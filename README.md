@@ -479,3 +479,28 @@ print("Term Frequency:")
 for term, frequency in tf.items():
     print(f"{term}: {frequency}")
 ```
+### Implement a function to calculate the document frequency of terms in a corpus.
+``` Python 
+from collections import defaultdict
+
+def calculate_df(corpus):
+    df = defaultdict(int)  # Empty dictionary for document frequency
+    for document in corpus:
+        # Create a set of unique terms in the current document
+        unique_terms = set(document.split())
+        # Update the document frequency f
+        for term in unique_terms:
+            df[term] += 1
+    return df
+
+# Input:
+corpus = [
+    "This is document 1. It contains some terms.",
+    "Document 2 has different terms than document 1.",
+    "Document 3 is another example document with some common terms.",
+]
+df = calculate_df(corpus)
+print("Document Frequency:")
+for term, frequency in df.items():
+    print(f"{term}: {frequency}")
+``` 
