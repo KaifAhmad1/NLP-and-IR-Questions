@@ -504,3 +504,6 @@ print("Document Frequency:")
 for term, frequency in df.items():
     print(f"{term}: {frequency}")
 ``` 
+### Create an inverted index from a collection of documents.
+An inverted index is a data structure used in information retrieval systems to efficiently map terms to the documents that contain them. Unlike a forward index, which maps documents to the terms they contain, an inverted index organizes data by terms, making it quicker to search for documents containing specific terms.
+[More Detailing](https://www.dcs.bbk.ac.uk/~dell/teaching/cc/book/ditp/ditp_ch4.pdf)
