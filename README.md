@@ -506,4 +506,27 @@ for term, frequency in df.items():
 ``` 
 ### Create an inverted index from a collection of documents.
 An inverted index is a data structure used in information retrieval systems to efficiently map terms to the documents that contain them. Unlike a forward index, which maps documents to the terms they contain, an inverted index organizes data by terms, making it quicker to search for documents containing specific terms.
+``` Python 
+def create_inverted_index(documents):
+    inverted_index = {}
+    for doc_id, document in enumerate(documents):
+        terms = document.split()  # Split document into terms
+        for term in terms:
+            if term not in inverted_index:
+                inverted_index[term] = set()  # Initialize posting list for the term
+            inverted_index[term].add(doc_id)  # Add document ID to posting list
+    return inverted_index
+
+# Input 
+documents = [
+    "This is the first document.",
+    "This document is the second document.",
+    "And this is the third one.",
+    "Is this the first document?",
+]
+
+inverted_index = create_inverted_index(documents)
+for term, posting_list in inverted_index.items():
+    print(f"{term}: {posting_list}")
+```
 [More Detailing](https://www.dcs.bbk.ac.uk/~dell/teaching/cc/book/ditp/ditp_ch4.pdf)
