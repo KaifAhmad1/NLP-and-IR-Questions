@@ -531,3 +531,5 @@ for term, posting_list in inverted_index.items():
 ```
 [More Detailing](https://www.dcs.bbk.ac.uk/~dell/teaching/cc/book/ditp/ditp_ch4.pdf)
 .
+
+### 
