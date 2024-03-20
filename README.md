@@ -529,7 +529,8 @@ inverted_index = create_inverted_index(documents)
 for term, posting_list in inverted_index.items():
     print(f"{term}: {posting_list}")
 ```
-[More Detailing](https://www.dcs.bbk.ac.uk/~dell/teaching/cc/book/ditp/ditp_ch4.pdf)
+References: 
+[Inverted Indexing for Text Retrieval](https://www.dcs.bbk.ac.uk/~dell/teaching/cc/book/ditp/ditp_ch4.pdf)
 .
 
 ### 
