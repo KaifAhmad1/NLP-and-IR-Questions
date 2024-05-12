@@ -575,4 +575,34 @@ Example: Organizing the model's thought process into a tree structure, where eac
 Description: GoT employs a graph-based framework to capture the non-linear characteristics of human thought processes, enabling dynamic interplay and backtracking.
 Example: Representing the model's reasoning process as a directed graph, allowing for the aggregation and combination of thoughts from various branches to reach a solution.
 
+- System 2 Attention (S2A) Prompting:
+Description: S2A enhances attention and response quality in language models by selectively attending to relevant portions of the input context through context regeneration and response generation with refined context.
+Example: A language model using S2A could focus its attention on specific segments of a lengthy passage when generating a summary, ensuring that only the most relevant information is included.
 
+- Thread of Thought (ThoT) Prompting:
+Description: ThoT systematically examines extensive contexts by breaking them down into manageable segments for incremental analysis, enhancing the reasoning abilities of language models.
+Example: When tasked with summarizing a long article, ThoT would guide the language model to analyze each paragraph individually before synthesizing them into a coherent summary.
+
+- Chain-of-Table Prompting:
+Description: Chain-of-Table prompting facilitates reasoning in intricate table scenarios by employing step-by-step tabular reasoning, dynamically generating and executing common SQL/DataFrame operations on tables.
+Example: When answering questions based on tabular data, Chain-of-Table prompting guides the model to perform logical operations directly on the table structure, improving accuracy in tasks like fact verification or question answering.
+
+- Automatic Prompt Engineer (APE):
+Description: APE dynamically generates and selects the most impactful prompts for specific tasks, overcoming the limitations of static, hand-designed prompts.
+Example: In a text generation task, APE would analyze the input context and dynamically generate prompts tailored to guide the language model in generating relevant and coherent responses.
+
+- Automatic Reasoning and Tool-use (ART):
+Description: ART empowers language models to reason through multi-step processes and integrate external expertise by seamlessly integrating external tools for specialized knowledge and computations.
+Example: In scientific research tasks, ART could enable a language model to utilize external databases or specialized tools to analyze experimental data and generate insightful interpretations or hypotheses.
+
+- Contrastive Chain-of-Thought (CCoT) Prompting:
+Description: CCoT provides both valid and invalid reasoning demonstrations alongside original prompts, facilitating learning from mistakes and improving reasoning abilities.
+Example: When solving logical reasoning puzzles, CCoT would present both correct and incorrect reasoning paths to the language model, helping it learn from incorrect assumptions and refine its logical reasoning process.
+
+- Emotion Prompting:
+Description: EmotionPrompt enhances language models' comprehension of emotional cues by appending emotional stimulus sentences to prompts, improving their performance across various tasks.
+Example: In a chatbot application, EmotionPrompt could include emotional cues such as tone or sentiment in the prompts to guide the language model in generating empathetic and contextually appropriate responses.
+
+- Scratchpad Prompting:
+Description: Scratchpad prompting enables language models to generate an arbitrary sequence of intermediate tokens before providing the final answer, improving their ability to reason through complex, multi-step tasks.
+Example: When solving complex mathematical problems, Scratchpad prompting allows the language model to generate intermediate steps or calculations before arriving at the final solution, enhancing accuracy and transparency in the reasoning process.
