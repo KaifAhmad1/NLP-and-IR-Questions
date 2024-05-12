@@ -534,3 +534,45 @@ References:
 .
 
 ### 
+
+
+## Prompt Engineering: 
+
+
+- Zero-Shot Prompting:
+Description: This technique eliminates the need for extensive training data by providing task descriptions in prompts, allowing the model to generate predictions based on its pre-existing knowledge.
+Example: In zero-shot prompt-based image captioning, a model might receive a prompt like "Describe the image with a beach and palm trees" without any specific training examples for that exact image.
+
+- Few-Shot Prompting:
+Description: Unlike zero-shot prompting, few-shot prompting provides the model with a few input-output examples to understand a task. These examples help the model generalize to similar tasks.
+Example: Providing a model with a few pairs of images and their corresponding captions to learn how to generate captions for similar images.
+
+- Chain-of-Thought (CoT) Prompting:
+Description: CoT prompting guides language models through coherent and step-by-step reasoning processes, mimicking how humans break down problems into logical intermediate steps.
+Example: In solving a multi-step math word problem, the prompt would guide the model through each logical step, leading to the final solution.
+
+- Automatic Chain-of-Thought (Auto-CoT) Prompting:
+Description: Auto-CoT automatically generates reasoning chains to instruct language models, eliminating the need for manual creation of examples.
+Example: Using a prompt like "Let's think step-by-step" to guide the model in generating reasoning chains for complex reasoning tasks.
+
+- Self-Consistency:
+Description: This technique enhances reasoning performance by generating diverse reasoning chains and identifying the most consistent final answer among them.
+Example: When solving a complex reasoning problem, the model generates multiple reasoning chains and selects the answer that appears consistently across these chains.
+
+- Logical Chain-of-Thought (LogiCoT) Prompting:
+Description: LogiCoT leverages principles from symbolic logic to enhance reasoning in a coherent and structured manner, reducing logical errors and hallucinations.
+Example: Applying reductio ad absurdum to verify each step of the reasoning process, ensuring logical consistency throughout.
+
+- Chain-of-Symbol (CoS) Prompting:
+Description: CoS employs condensed symbols instead of natural language to overcome limitations in tasks involving complex spatial relationships.
+Example: Using symbolic representations to guide a language model in solving spatial reasoning tasks, such as navigating mazes or solving puzzles.
+
+- Tree-of-Thoughts (ToT) Prompting:
+Description: ToT extends CoT prompting by managing a tree structure of intermediate reasoning steps, allowing systematic exploration among reasoning chains.
+Example: Organizing the model's thought process into a tree structure, where each node represents a coherent step toward the solution of a problem.
+
+- Graph-of-Thoughts (GoT) Prompting:
+Description: GoT employs a graph-based framework to capture the non-linear characteristics of human thought processes, enabling dynamic interplay and backtracking.
+Example: Representing the model's reasoning process as a directed graph, allowing for the aggregation and combination of thoughts from various branches to reach a solution.
+
+
